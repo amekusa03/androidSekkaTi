@@ -13,22 +13,22 @@
 
         <!-- メモ帳の上部バインダー部分 -->
         <path
-            android:fillColor="#FFD0BCFF"
+            android:fillColor="#FFA5D6A7"
             android:pathData="M10,2h36c2.2,0 4,1.8 4,4v8H6V6C6,3.8 7.8,2 10,2z" />
 
         <!-- バインダーの穴（装飾） -->
         <path
-            android:fillColor="#FF6750A4"
+            android:fillColor="#FF4CAF50"
             android:pathData="M14,6h4v4h-4z M26,6h4v4h-4z M38,6h4v4h-4z" />
 
         <!-- メモの行（テキストを模したもの） -->
         <path
-            android:fillColor="#EADDFF"
+            android:fillColor="#FFE8F5E9"
             android:pathData="M14,22h28v3h-28z M14,32h28v3h-28z M14,42h18v3h-18z" />
 
         <!-- 「せっかち」を象徴する雷アイコンのアクセント -->
         <path
-            android:fillColor="#6750A4"
+            android:fillColor="#2E7D32"
             android:pathData="M44,40l-4,8h4l-4,8h8l4,-8h-4l4,-8z" />
     </group>
 </vector>
