@@ -1,34 +1,19 @@
-# せっかち
+# SekkaTi Android
 
-せっかちさんのためのメモ帳。さっと出して、書いて、しまう。
-Android アプリです。
-モダンな Material 3 デザインを採用し、スムーズな操作でメモをします
+Desktop版「SekkaTi」をAndroidアプリとして再現。せっかちさんのためのメモ帳。さっと出して、書いて、しまう。
 
-## 主な機能 🌟
+![screenshot](./screenshot.png)
 
-- **スマートな記録**: カレンダー形式のカードをスワイプして、素早くメモ。
-- **モダンなデザイン**: 
-  - Material 3 フル対応。
-  - スムーズなカードアニメーションとグラデーション背景。
-- **まとめて参照** — 「今日」「昨日」「今週」「今月」「 期間指定」などで過去のメモをさっと読み返せる
-- **削除機能** — 「昨日」「先週」「先月」「 期間指定」などで過去のメモを削除できる
+## デモ
+[![Demo](./thumbnail.png)](https://youtu.be/AkKYzU7-c5Q)
 
-## 技術スタック 🛠️
+## 技術スタック
+- Kotlin / Jetpack Compose (Material 3)
+- Room (SQLite)
+- WorkManager
+- Coroutines & Flow
+- MVVM
+- KSP (Kotlin Symbol Processing)
 
-- **Language**: Kotlin
-- **UI**: Jetpack Compose (Material 3)
-- **Database**: Room (SQLite)
-- **Asynchronous**: Coroutines & Flow
-- **Architecture**: MVVM
-- **Dependency Management**: Gradle Version Catalog (libs.versions.toml)
-- **Annotation Processing**: KSP (Kotlin Symbol Processing)
-
-## セットアップ 🚀
-
-1. Android Studio (Ladybug 以降推奨) でプロジェクトを開きます。
-2. プロジェクトを Gradle Sync します。
-3. Android デバイスまたはエミュレータで実行します。
-
-## ライセンス 📝
-
-このプロジェクトは MIT ライセンスの下で公開されています。
+## License
+MIT
