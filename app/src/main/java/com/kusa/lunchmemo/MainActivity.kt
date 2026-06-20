@@ -63,7 +63,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -394,6 +396,16 @@ fun SekkaTiCard(
     onMemoChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var textFieldValue by remember(date) {
+        mutableStateOf(TextFieldValue(text = memo, selection = TextRange(memo.length)))
+    }
+
+    LaunchedEffect(memo) {
+        if (memo != textFieldValue.text) {
+            textFieldValue = textFieldValue.copy(text = memo)
+        }
+    }
+
     val isToday = date == LocalDate.now()
     val monthFormatter = DateTimeFormatter.ofPattern("MMM", Locale.getDefault())
     val dayFormatter = DateTimeFormatter.ofPattern("d", Locale.getDefault())
@@ -475,8 +487,14 @@ fun SekkaTiCard(
             ) {
                 if (isEditable) {
                     OutlinedTextField(
-                        value = memo,
-                        onValueChange = onMemoChange,
+                        value = textFieldValue,
+                        onValueChange = { newValue ->
+                            val textChanged = newValue.text != textFieldValue.text
+                            textFieldValue = newValue
+                            if (textChanged) {
+                                onMemoChange(newValue.text)
+                            }
+                        },
                         modifier = Modifier.fillMaxSize(),
                         placeholder = { 
                             Text(

@@ -8,8 +8,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="/media/data/Users/ame/document/AndroidStudioProjects/SekkaTi" />
-            <option value="/media/data/Users/ame/document/AndroidStudioProjects/SekkaTi/app" />
+            <option value="/media/data/Users/ame/document/AndroidStudioProjects/androidSekkaTi" />
+            <option value="/media/data/Users/ame/document/AndroidStudioProjects/androidSekkaTi/app" />
           </set>
         </option>
       </GradleProjectSettings>
