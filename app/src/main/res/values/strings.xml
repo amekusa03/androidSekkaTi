@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">SekkaTi</string>
+    <string name="cleanup">Cleanup</string>
+    <string name="summary">Summary</string>
+    <string name="memo_summary">Memo Summary</string>
+    <string name="quick_cleanup">Quick Cleanup</string>
+    <string name="select_range_to_delete">Select a range to delete memos from your history.</string>
+    <string name="delete_yesterdays_memo">Delete Yesterday\'s Memo</string>
+    <string name="delete_last_weeks_memos">Delete Last Week\'s Memos</string>
+    <string name="delete_last_months_memos">Delete Last Month\'s Memos</string>
+    <string name="confirm_deletion">Confirm Deletion</string>
+    <string name="delete_confirm_message">This action cannot be undone. Are you sure you want to delete memos from %1$s?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="today">Today</string>
+    <string name="quick_memo_placeholder">Quick memo...</string>
+    <string name="no_memo">No memo</string>
 </resources>

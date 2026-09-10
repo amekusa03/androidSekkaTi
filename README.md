@@ -1,13 +1,13 @@
 # SekkaTi Android
 
-Desktop版「SekkaTi」をAndroidアプリとして再現。せっかちさんのためのメモ帳。さっと出して、書いて、しまう。
+An Android port of the desktop app "SekkaTi" — a quick daily memo app designed for impatient people. Open instantly, write, and done.
 
 ![screenshot](./assets/screenshot.png)
 
-## デモ
+## Demo
 [![Demo](./assets/screenshot.png)](https://youtube.com/shorts/x4Kj6EYeVwA)
 
-## 技術スタック
+## Tech Stack
 - Kotlin / Jetpack Compose (Material 3)
 - Room (SQLite)
 - WorkManager

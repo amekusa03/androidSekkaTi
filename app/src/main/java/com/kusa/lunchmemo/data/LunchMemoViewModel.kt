@@ -26,7 +26,7 @@ class SekkaTiViewModel(application: Application) : AndroidViewModel(application)
 
     fun cleanOldMemos() {
         viewModelScope.launch {
-            // 自動クリーンアップは1ヶ月以上前に変更（要件に合わせて調整）
+            // Automatically clean up memos older than 1 month
             val monthAgo = LocalDate.now().minusMonths(1).format(formatter)
             dao.deleteMemosOlderThan(monthAgo)
         }

@@ -63,7 +63,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextRange
+import com.kusa.sekkati.R
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
@@ -126,7 +128,7 @@ fun SekkaTiScreen(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent
                 )
             )
@@ -141,12 +143,12 @@ fun SekkaTiScreen(
                     containerColor = MaterialTheme.colorScheme.errorContainer,
                     contentColor = MaterialTheme.colorScheme.onErrorContainer
                 ) {
-                    Icon(Icons.Default.DeleteForever, contentDescription = "Cleanup")
+                    Icon(Icons.Default.DeleteForever, contentDescription = stringResource(R.string.cleanup))
                 }
                 ExtendedFloatingActionButton(
                     onClick = { showSummary = true },
                     icon = { Icon(Icons.Default.AutoAwesomeMotion, contentDescription = null) },
-                    text = { Text("Summary") },
+                    text = { Text(stringResource(R.string.summary)) },
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
@@ -209,7 +211,7 @@ fun SummaryBottomSheet(
                 .padding(bottom = 32.dp)
         ) {
             Text(
-                "Memo Summary",
+                stringResource(R.string.memo_summary),
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(16.dp),
                 fontWeight = FontWeight.Bold
@@ -258,7 +260,7 @@ fun DeleteOptionsBottomSheet(
                 .padding(bottom = 32.dp)
         ) {
             Text(
-                "Quick Cleanup",
+                stringResource(R.string.quick_cleanup),
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(16.dp),
                 fontWeight = FontWeight.Bold,
@@ -266,7 +268,7 @@ fun DeleteOptionsBottomSheet(
             )
 
             Text(
-                "Select a range to delete memos from your history.",
+                stringResource(R.string.select_range_to_delete),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -290,7 +292,7 @@ fun DeleteOptionsBottomSheet(
                 ) {
                     Icon(Icons.Default.DeleteForever, contentDescription = null)
                     Spacer(Modifier.size(8.dp))
-                    Text("Delete Yesterday's Memo")
+                    Text(stringResource(R.string.delete_yesterdays_memo))
                 }
                 Button(
                     onClick = { showDeleteConfirm = "week" },
@@ -302,7 +304,7 @@ fun DeleteOptionsBottomSheet(
                 ) {
                     Icon(Icons.Default.DeleteForever, contentDescription = null)
                     Spacer(Modifier.size(8.dp))
-                    Text("Delete Last Week's Memos")
+                    Text(stringResource(R.string.delete_last_weeks_memos))
                 }
                 Button(
                     onClick = { showDeleteConfirm = "month" },
@@ -314,7 +316,7 @@ fun DeleteOptionsBottomSheet(
                 ) {
                     Icon(Icons.Default.DeleteForever, contentDescription = null)
                     Spacer(Modifier.size(8.dp))
-                    Text("Delete Last Month's Memos")
+                    Text(stringResource(R.string.delete_last_months_memos))
                 }
             }
         }
@@ -323,8 +325,8 @@ fun DeleteOptionsBottomSheet(
     if (showDeleteConfirm != null) {
         AlertDialog(
             onDismissRequest = { showDeleteConfirm = null },
-            title = { Text("Confirm Deletion") },
-            text = { Text("This action cannot be undone. Are you sure you want to delete memos from ${showDeleteConfirm}?") },
+            title = { Text(stringResource(R.string.confirm_deletion)) },
+            text = { Text(stringResource(R.string.delete_confirm_message, showDeleteConfirm ?: "")) },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -337,12 +339,12 @@ fun DeleteOptionsBottomSheet(
                         onDismiss() // Close bottom sheet after action
                     }
                 ) {
-                    Text("Delete", color = MaterialTheme.colorScheme.error)
+                    Text(stringResource(R.string.delete), color = MaterialTheme.colorScheme.error)
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteConfirm = null }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )
@@ -432,7 +434,7 @@ fun SekkaTiCard(
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // ヘッダー部分
+            // Header section
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -460,7 +462,7 @@ fun SekkaTiCard(
                 if (isToday) {
                     SuggestionChip(
                         onClick = { },
-                        label = { Text("Today", fontWeight = FontWeight.Bold) },
+                        label = { Text(stringResource(R.string.today), fontWeight = FontWeight.Bold) },
                         colors = SuggestionChipDefaults.suggestionChipColors(
                             containerColor = MaterialTheme.colorScheme.primaryContainer,
                             labelColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -473,7 +475,7 @@ fun SekkaTiCard(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // コンテンツ部分
+            // Content section
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -498,7 +500,7 @@ fun SekkaTiCard(
                         modifier = Modifier.fillMaxSize(),
                         placeholder = { 
                             Text(
-                                "Quick memo...",
+                                stringResource(R.string.quick_memo_placeholder),
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
                             ) 
@@ -520,7 +522,7 @@ fun SekkaTiCard(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = memo.ifEmpty { "No memo" },
+                            text = memo.ifEmpty { stringResource(R.string.no_memo) },
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontStyle = if (memo.isEmpty()) androidx.compose.ui.text.font.FontStyle.Italic else androidx.compose.ui.text.font.FontStyle.Normal,
                                 color = if (memo.isEmpty()) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f) 

@@ -13,16 +13,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="testRunner" value="CHOOSE_PER_TEST" />
-        <option name="externalProjectPath" value="/media/data/Users/ame/document/AndroidStudioProjects/SekkaTi" />
-        <option name="modules">
-          <set>
-            <option value="/media/data/Users/ame/document/AndroidStudioProjects/SekkaTi" />
-            <option value="/media/data/Users/ame/document/AndroidStudioProjects/SekkaTi/app" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>
